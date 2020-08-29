@@ -1,0 +1,24 @@
+<div class="container-fluid mt-5 w-75">
+    <br><br>
+    <h2>Welcome to your profile, {{ name }}</h2>
+    <hr>
+
+    <h3><strong>My Orders</strong></h3>
+    <div class="row mx-0" *ngFor="let order of orders; let i = index">
+        <div class="card w-100 mb-4">
+            <div class="card-header bg-secondary text-white">Order # {{ i+1 }}</div>
+            <div class="card-body">
+                <ul class="list-group w-100" *ngFor="let product of toArray(order.cart.items)">
+                    <li class="list-group-item d-flex align-items-center" >
+                        <span>{{ product.item.title }} | {{ product.qty }} Units</span>
+                        <span class="badge badge-primary badge-pill ml-auto">${{ product.price }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <strong>Total Price: ${{ order.cart.totalPrice }}</strong>
+            </div>
+        </div>
+    </div>
+</div>
+

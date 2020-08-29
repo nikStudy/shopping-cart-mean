@@ -1,0 +1,22 @@
+<div class="container-fluid mt-5">
+    <div id="login">
+      <h2>Forgot Username</h2><br>
+    
+      <form [formGroup]='userForm'>
+        <div *ngIf="datasaved" class="alert alert-success">{{ message }}</div>
+  
+        <div class="form-group row">
+          <label for="email" class="col-sm-3">Email ID: * </label>
+          <input type="email" class="form-control col-sm-9" placeholder="Email ID" formControlName="email" id="email">
+          <span class="font-italic" *ngIf = "userForm.controls['email'].touched && userForm.controls['email'].hasError('required')">Email address is required</span>
+          <span class="font-italic" *ngIf = "userForm.controls['email'].hasError('email')">Please enter valid email address</span>
+        </div>
+
+        <div class="row">
+            <button type="submit" class="btn btn-success" [disabled]="userForm.invalid || submitDisabled" (click)="submitData()">Submit</button>
+        </div>
+      </form>
+    </div>
+      <br>
+  </div>
+    

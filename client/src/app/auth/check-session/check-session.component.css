@@ -1,0 +1,52 @@
+body {
+    margin: auto;
+    padding: auto;
+    background-color: #fff;
+  }
+  
+  .container.anim {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Circles */
+  .circle:nth-child(1),
+  .circle:nth-child(2),
+  .circle:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    animation: jump .9s ease-in infinite
+  }
+  
+  .circle:nth-child(1) {
+    background-color: #C14B22;
+  }
+  
+  .circle:nth-child(2) {
+    background-color: #E26818;
+    animation-delay: .15s;
+  }
+  
+  .circle:nth-child(3) {
+    background-color: #FFD18E;
+    animation-delay: .25s;
+  }
+  
+  /* Animation */
+  @keyframes jump {
+    0% {
+      transform: translateY(0px);
+    }
+    
+    50% {
+      transform: translateY(-40px);
+    }
+    
+    100% {
+      transform: translateY(0px);
+    }
+  }

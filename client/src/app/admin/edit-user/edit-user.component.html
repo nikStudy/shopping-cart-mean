@@ -1,0 +1,48 @@
+<div class="container-fluid mt-5">
+    <div id="edit">
+      <h2>Edit User</h2><br>
+    
+      <form [formGroup]='editForm'>
+        <div *ngIf="datasaved" class="alert alert-success">{{ message }}</div>
+  
+        <div class="form-group row">
+          <label for="name" class="col-sm-3">Name: * </label>
+          <input type="text" class="form-control col-sm-9" placeholder="Name" formControlName="name" id="name">
+          <span class="font-italic" *ngIf = "editForm.controls['name'].touched && editForm.controls['name'].hasError('required')">Name is required</span>
+          <span class="font-italic" *ngIf = "editForm.controls['name'].hasError('pattern')">Name must be alphabets (. and space are also allowed) and must be maximum 50 characters long</span>
+        </div>
+
+        <div class="form-group row">
+          <label for="username" class="col-sm-3">Username: * </label>
+          <input type="text" class="form-control col-sm-9" placeholder="Username" formControlName="username" id="username">
+          <span class="font-italic" *ngIf = "editForm.controls['username'].touched && editForm.controls['username'].hasError('required')">Username is required</span>
+          <span class="font-italic" *ngIf = "editForm.controls['username'].hasError('pattern')">Username must be alphanumeric and contain 5 - 12 characters</span>
+        </div>
+    
+        <div class="form-group row">
+          <label for="email" class="col-sm-3">Email ID: * </label>
+          <input type="email" class="form-control col-sm-9" placeholder="Email ID" formControlName="email" id="email">
+          <span class="font-italic" *ngIf = "editForm.controls['email'].touched && editForm.controls['email'].hasError('required')">Email address is required</span>
+          <span class="font-italic" *ngIf = "editForm.controls['email'].hasError('pattern')">Please enter a valid email address, e.g. me@mydomain.com</span>
+        </div>
+
+        <div class="form-group row">
+          <label for="permission" class="col-sm-3 mb-0 pb-0">Permission: * </label>
+          <div class="btn-group col-sm-9 m-0 p-0">
+            <button type="button" class="form-control btn btn-outline-primary mb-0" id="permission" [class.active]="currPermission == 'user'" (click)="updatePermission('user')">User</button>
+            <button type="button" class="form-control btn btn-outline-primary mb-0" id="permission" [class.active]="currPermission == 'moderator'" (click)="updatePermission('moderator')">Moderator</button>
+            <button type="button" class="form-control btn btn-outline-primary mb-0" id="permission" [class.active]="currPermission == 'admin'" [class.disabled]="managementPermission == 'moderator'" (click)="updatePermission('admin')">Admin</button>
+          </div>
+          <span class="col-sm-3"></span>
+          <span class="font-italic col-sm-9 m-0 p-0 text-primary">Current Permission is {{currPermission}}</span>
+        </div>
+  
+        <div class="row">
+            <button type="submit" class="btn btn-success" [disabled]="editForm.invalid" (click)="updatedata()">Update</button>
+            <button type="submit" class="btn btn-secondary ml-3" routerLink="/management" routerLinkActive="active" >Go Back</button>
+        </div>
+      </form>
+    </div>
+      <br>
+  </div>
+    

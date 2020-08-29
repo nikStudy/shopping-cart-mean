@@ -1,0 +1,30 @@
+<div class="container-fluid mt-5">
+    <div id="resend">
+      <h2>Resend Activation Link</h2><br>
+    
+      <form [formGroup]='resendForm'>
+        <div *ngIf="datasaved" class="alert alert-success">{{ message }}</div>
+        <!-- <div *ngIf="credentialsCheck" class="alert alert-primary">{{ message }}</div> -->
+  
+        <div class="form-group row">
+          <label for="email" class="col-sm-3">Email ID: * </label>
+          <input type="email" class="form-control col-sm-9" placeholder="Email ID" formControlName="email" id="email">
+          <span class="font-italic" *ngIf = "resendForm.controls['email'].touched && resendForm.controls['email'].hasError('required')">Email address is required</span>
+          <span class="font-italic" *ngIf = "resendForm.controls['email'].hasError('pattern')">Please enter a valid email address, e.g. me@mydomain.com</span>
+        </div>
+  
+        <div class="form-group row mb-3">
+          <label for="pass" class="col-sm-3">Password: * </label>
+          <input type="password" class="form-control col-sm-9" placeholder="Password" formControlName="password" id="pass">
+          <span class="font-italic" *ngIf = "resendForm.controls['password'].touched && resendForm.controls['password'].hasError('required')">Password is required</span>
+        </div>
+        
+        <div class="row">
+            <button type="submit" class="btn btn-success" [disabled]="resendForm.invalid || submitDisabled" (click)="submitData()">Submit</button>
+        </div>
+
+      </form>
+    </div>
+      <br>
+  </div>
+    

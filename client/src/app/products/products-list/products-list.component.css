@@ -1,0 +1,35 @@
+.card {
+    margin-bottom: 20px;
+    border-color: orange;
+}
+
+img {
+    height: 200px;
+}
+
+.card-body {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-footer {
+    background-color: #ffffff;
+}
+
+button {
+    padding: 10px;
+    background-color: #f4511e;
+    color: #fff;
+    margin: 10px 0;
+}
+
+button:hover {
+    color: #f4511e !important;
+    background-color: #ffffff !important;
+    border: 1px solid #f4511e;
+}
+
+div.card-footer h3 {
+    font-weight: 400;
+    color: #818181;
+}

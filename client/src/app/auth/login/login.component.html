@@ -1,0 +1,50 @@
+<div class="container-fluid mt-5">
+    <div id="login"><br>
+      <h2>User Login</h2><br>
+    
+      <form [formGroup]='loginForm'>
+        <div *ngIf="datasaved || resendButton" class="alert alert-success">
+          {{ message }}<br>
+          <button *ngIf="resendButton" class="btn btn-success mt-2" routerLink="/resend" routerLinkActive="active" >Resend Activation Link</button>
+        </div>
+  
+        <div class="form-group row">
+          <label for="email" class="col-sm-3">Email ID: * </label>
+          <input type="email" class="form-control col-sm-9" placeholder="Email ID" formControlName="email" id="email">
+          <span class="font-italic" *ngIf = "loginForm.controls['email'].touched && loginForm.controls['email'].hasError('required')">Email address is required</span>
+          <span class="font-italic" *ngIf = "loginForm.controls['email'].hasError('email')">Please enter valid email address</span>
+        </div>
+  
+        <div class="form-group row mb-3">
+          <label for="pass" class="col-sm-3">Password: * </label>
+          <input type="password" class="form-control col-sm-9" placeholder="Password" formControlName="password" id="pass">
+        </div>
+
+        <div class="form-group row">
+          <re-captcha (resolved)="resolved($event)" formControlName="recaptchaReactive" siteKey="6Lc2sPUUAAAAADhSYFaD9tFsYoBz8p77uxPfiUNj"></re-captcha>
+        </div>
+
+        <!-- <input type="hidden" name="_csrf" formControlName="_csrf" value="{{csrfToken}}"> -->
+        
+        <div class="row">
+            <button type="submit" class="btn btn-success" [disabled]="(loginForm.invalid && !captchaPassed) || loginDisabled" (click)="submitData()">Login</button>
+            <a href="http://localhost:4000/auth/google/"><button type="button" class="btn btn-danger ml-3" [disabled]="loginForm.valid">Google+</button></a>
+          <a href="http://localhost:4000/auth/github/"><button type="button" class="btn btn-dark ml-3" [disabled]="loginForm.valid">Github</button></a>
+        </div>
+        <div class="row mt-3">
+          <button type="button" class="btn btn-warning" routerLink="/forgotusername" routerLinkActive="active" >Forgot Username</button>
+          <button type="button" class="btn btn-info ml-3" routerLink="/forgotpassword" routerLinkActive="active">Forgot Password</button>
+
+          <button type="button" class="btn btn-info ml-3" (click)="filldata()">Fill data</button>
+          
+      </div>
+      
+      </form>
+      <br>
+      <div class="row">
+        <p>Don't have an account? <a routerLink="/registration" routerLinkActive="active">Sign up instead!</a></p>
+      </div>
+    </div>
+      <br>
+  </div>
+    

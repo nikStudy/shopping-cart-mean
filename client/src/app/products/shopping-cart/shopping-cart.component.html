@@ -1,0 +1,37 @@
+<div class="container-fluid pt-5 w-75" *ngIf="cartsaved">
+    <br><br>
+    <div class="row">
+        <ul class="list-group w-100">
+            <li class="list-group-item d-flex align-items-center" *ngFor="let product of products">
+                <strong>{{ product.item.title }}</strong>
+                <span class="badge badge-success mx-2">${{ product.price }}</span>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Action
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" (click)="reduce(product.item._id)">Reduce by 1</a>
+                        <a class="dropdown-item" (click)="remove(product.item._id)">Remove All</a>
+                    </div>
+                </div>
+                <span class="badge badge-primary badge-pill ml-auto">{{ product.qty }}</span>
+            </li>
+        </ul>
+    </div>
+    <br><br>
+    <div class="row">
+        <strong>Total: ${{ totalPrice }}</strong>
+    </div>
+    <hr>
+
+    <div class="row">
+        <button type="button" class="btn btn-success" (click)="checkout()">CheckOut</button>
+    </div>
+</div>
+
+<div class="container-fluid pt-5 w-50" *ngIf="!cartsaved">
+    <br><br>
+    <div class="row">
+        <h2>No Item in Cart</h2>
+    </div>
+</div>

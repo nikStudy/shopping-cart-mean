@@ -1,0 +1,39 @@
+<div class="container">
+    <!-- Button to Open the Modal -->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Open modal
+    </button> -->
+  
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">{{ modalHeader }}</h4>
+            <button type="button" class="close" data-dismiss="modal" (click)="endSession()">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+            {{ modalBody }}
+            <div class="container anim" *ngIf="!hideButtons">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer" *ngIf="hideButtons">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="renewSession()" *ngIf="hideButtons">Yes</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="endSession()" *ngIf="hideButtons">No</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  

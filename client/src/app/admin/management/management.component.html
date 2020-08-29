@@ -1,0 +1,41 @@
+<div class="container-fluid mt-5">
+    <h2>User Management</h2><br><br>
+
+    <div>
+      Results to display: 
+      <input type="text" [(ngModel)]='limitEntered'>
+      <button type="button" class="btn btn-success ml-3" (click)="showLimited()">Apply Filter</button>
+      <button type="button" class="btn btn-warning ml-3" (click)="showAll()">Show All</button>
+    </div><br>
+
+    <div *ngIf="datasaved" class="alert alert-success">{{ message }}</div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr class="bg-primary">
+          <th colspan="5"><h6 class="text-nowrap text-white">User Management</h6></th>
+        </tr>
+        <tr>
+          <th>User #</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let user of users | slice: 0: limit; let i = index;">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button type="button" class="btn btn-primary" *ngIf="editAccess" routerLink="/edit/{{ user._id }}" routerLinkActive="active" >Edit</button>
+            <button type="button" class="btn btn-danger ml-2" *ngIf="deleteAccess" (click)="deleteUser(user.username)">Delete</button>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+
+</div>

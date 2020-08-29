@@ -1,0 +1,35 @@
+input.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+div.container-fluid {
+    width: 50%;
+}
+
+#login {
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 992px) {
+    div.container-fluid {
+        width: 75%;
+    }    
+}
+
+@media screen and (max-width: 768px) {
+    div.container-fluid {
+        width: 90%;
+    }    
+}
+
+input{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+label{
+    padding: 5px;
+    font-weight: bold;
+}

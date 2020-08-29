@@ -1,0 +1,23 @@
+<div class="container-fluid pt-5 px-5">
+    <br><br>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 mb-5" *ngFor="let product of products; let i = index">
+            <div class="card">
+                <div class="card-header p-0">
+                    <img src="http://localhost:4000/uploads/{{ product.image }}" alt="{{ product.image }}" class="w-100 img-fluid img-thumbnail">      
+                </div>
+                <div class="card-body">
+                    <h3>{{ product.title }}</h3>
+                    <p class="text-muted text-justify">{{ product.short_descrip }}</p>
+                </div>
+                <div class="card-footer">
+                    <h3>${{ product.price }}</h3>
+                    <button type="button" class="btn" (click)="addToCart(product._id)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+<br>

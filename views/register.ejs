@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Strategy PassportJS</title>
+    <style>
+        body {
+            font-family: arial;
+            margin: 0;
+        }
+        nav {
+            background: #ff5353;
+            padding: 20px 10px;
+        }
+        nav ul {
+            max-width: 960px;
+            margin: 0 15px;
+            padding: 0;
+        }
+        nav li {
+            list-style-type: none;
+            display: inline-block;
+            margin: 0 10px 0 0;
+        }
+        nav a {
+            color: #fff;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        main, header {
+            max-width: 960px;
+            margin: 30px 15px;
+            padding: 0 10px;
+            color: #333;
+        }
+        label {
+            font-size: 22px;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            min-width: 300px;
+        }
+        button[type="submit"] {
+            margin: 20px 0 0 10px;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <% if(user) { %>
+                <li><a href="/auth/logout">Logout</a></li>
+            <% } else { %>
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/register">Register</a></li>
+            <% } %>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Register</h1>
+    </header>
+    <main>
+        
+       <form action="/auth/register" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Name</label>
+                </td>
+                <td>
+                    <input type="text" id="name" name="name" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                </td>
+                <td>
+                    <input type="email" id="email" name="email" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="password">Password</label>
+                </td>
+                <td>
+                    <input type="password" id="password" name="password" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Register</button>
+                </td>
+            </tr>
+        </table>
+       </form>
+    </main>
+</body>
+</html>

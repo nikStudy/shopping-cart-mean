@@ -1,0 +1,8 @@
+<div class="container-fluid mt-5">
+    <h1>Account Activation</h1>
+    <div *ngIf="datasaved" class="alert alert-success">{{ message }} ....Redirecting to Login Page</div>
+    <div *ngIf="!datasaved" class="alert alert-warning">
+        {{ message }}
+        <button class="btn btn-warning ml-3" routerLink="/resend" routerLinkActive="active" >Resend Activation Link</button>
+    </div>
+</div>
